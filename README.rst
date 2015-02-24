@@ -208,7 +208,7 @@ Released on January 10, 2014.
 - Close help overlay on ``escape`` key.
   [`#27`__]
 - Added ``--P``/``--profile``/``--linesman`` option, available only when
-  linesman_ is installed, to ``earthreader server`` comand.
+  linesman_ is installed, to ``earthreader server`` command.
 - Continue crawling when some feed raises error.
 - Fix crawling bug.
 - Print error when failed to remove feed.
