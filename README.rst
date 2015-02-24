@@ -187,7 +187,7 @@ Version 0.2.2
 
 Released on February 24, 2015.
 
-- Fixed a bug that enters a infinite loop when initilize
+- Fixed a bug that enters a infinite loop when initialize
   :class:`~earthreader.web.CategoryEntryGenerator`
 - Fix open link.
 - And a lot of changes (`Version 0.1.2`_).
