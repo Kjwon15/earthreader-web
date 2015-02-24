@@ -176,6 +176,12 @@ Continuous integration (Travis)
 Changelog
 ---------
 
+Version 0.1.3
+~~~~~~~~~~~~~
+
+To be released.
+
+
 Version 0.1.2
 ~~~~~~~~~~~~~
 
