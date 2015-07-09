@@ -5,7 +5,6 @@ Use :data:`stage` in view functions.
 
 """
 import os
-import uuid
 
 from flask import current_app, request
 from six.moves import urllib
@@ -31,7 +30,7 @@ def get_stage():
             # where N = the number of processes.  So we should discourage
             # using web servers of prefork/worker model in the docs.
             session_id = '{0}.{1}'.format(
-                session_id or uuid.getnode(), os.getpid())
+                session_id or Session.get_default_name(), os.getpid())
         session = Session(session_id)
         url = urllib.parse.urlparse(current_app.config['REPOSITORY'])
         if url.scheme == 'file':
