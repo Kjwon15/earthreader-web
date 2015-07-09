@@ -77,6 +77,7 @@ For example, you can run it on Gunicorn:
 .. code-block:: console
 
    $ export EARTHREADER_REPOSITORY=/path/to/repository/dir
+   $ export EARTHREADER_SESSION_ID='My desktop'
    $ gunicorn earthreader.web:app
 
 Or you can attach Earth Reader to Apache with mod_wsgi like this:
@@ -191,6 +192,7 @@ To be released.
 - Fix malfunctioning when click different category when loading another category.
 - Fix "Read on web" keyboard shortcut.
 - Fix typo.
+- Read configuration "SESSION_ID" from environment "EARTHREADER_SESSION_ID".
 
 
 Version 0.3.0

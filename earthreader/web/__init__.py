@@ -33,11 +33,11 @@ app.config.update(
     )
 
 
-# Load EARTHREADER_REPOSITORY environment variable if present.
-try:
-    app.config['REPOSITORY'] = os.environ['EARTHREADER_REPOSITORY']
-except KeyError:
-    pass
+# Load environments variable if present.
+for config_name in ('REPOSITORY', 'SESSION_ID'):
+    env_name = 'EARTHREADER_' + config_name
+    if env_name in os.environ:
+        app.config[config_name] = os.environ[env_name]
 worker = Worker(app)
 
 
