@@ -81,20 +81,13 @@ body .wrapper {
   content: "\2637";
 }
 
-[role=main], [role=navigation], [role=complementary] {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 [role=navigation], [role=complementary] {
-  width: 90%;
   height: 100%;
   top: 0;
   margin-top: 3em;
   padding-bottom: 3em;
   box-sizing: border-box;
   position: fixed;
-  z-index: 2;
   user-select: none;
 
   ul, ol {
@@ -247,6 +240,13 @@ body .wrapper {
     }
 }
 
+#feedList {
+  padding: 16px 0;
+  .mdl-navigation__link {
+
+  }
+}
+
 a, a:hover, a:active, a:link, a:visited {
   text-decoration: none;
   color: #3bf;
@@ -315,8 +315,6 @@ input:not([type=button]):not([type=submit]):focus, textarea:focus {
   }
 
   [role=main] {
-    width: 80%;
-    margin-left: 20%;
 
     .entry.loading {
       border: 1px inset #ddf;
