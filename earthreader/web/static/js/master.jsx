@@ -158,11 +158,6 @@ var Entry = React.createClass({
           </article>
         </section>
         );
-    return (
-        <article className="entry">
-        <div className="entry-title">{ this.props.data.title }</div>
-        </article>
-        );
   }
 });
 
