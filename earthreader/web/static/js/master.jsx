@@ -116,9 +116,18 @@ var Entry = React.createClass({
     };
   },
   handleExpandEntry: function(event) {
-    event.preventDefault();
+    $.ajax({
+      url: this.props.data.entry_url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({
+          entryContent: data.content,
+        })
+      }.bind(this),
+      error: function(xhr, status, err) {
+      }.bind(this)
+    })
     this.setState({
-      entryContent: 'cake',
     })
   },
   render: function() {
@@ -128,8 +137,12 @@ var Entry = React.createClass({
         <section className="entry mdl-grid">
           <article className="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
             <div className="mdl-card__title">
-              <h2 className="mdl-card__title-text">{ this.props.data.title }</h2>
-              <h3 className="mdl-card__subtitle-text">{ this.props.data.feed.title }</h3>
+              <h2 className="mdl-card__title-text">
+                <a href={ this.props.data.permalink }>{ this.props.data.title }</a>
+              </h2>
+              <h3 className="mdl-card__subtitle-text">
+                <a href={ this.props.data.feed.permalink }>{ this.props.data.feed.title }</a>
+              </h3>
             </div>
             <div className="mdl-card__supporting-text">
               <time>{ this.props.data.updated }</time>
@@ -137,12 +150,10 @@ var Entry = React.createClass({
             <div className="mdl-card__supporting-text" dangerouslySetInnerHTML={ {__html: this.state.entryContent} }>
             </div>
             <div className="mdl-card__actions mdl-card--border">
-              <a href={ this.props.data.entry_url } onClick={ this.handleExpandEntry }>
-                <button className="mdl-button mdl-js-button mdl-button--raised">
-                  Read
-                  <i className="material-icons">arrow_forward</i>
-                </button>
-              </a>
+              <button className="mdl-button mdl-js-button mdl-button--raised" onClick={ this.handleExpandEntry }>
+                Read
+                <i className="material-icons">arrow_forward</i>
+              </button>
             </div>
           </article>
         </section>
