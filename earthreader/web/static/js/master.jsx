@@ -133,6 +133,8 @@ var Entry = React.createClass({
   render: function() {
     var star = this.props.data.starred;
     var menuId = "entry-menu-" + this.props.data.entry_id;
+    var timeAbs = moment(this.props.data.updated).format('L');
+    var timeRel = moment(this.props.data.updated).fromNow();
     return (
         <section className="entry mdl-grid">
           <article className="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
@@ -142,12 +144,13 @@ var Entry = React.createClass({
               </h2>
               <h3 className="mdl-card__subtitle-text">
                 <a href={ this.props.data.feed.permalink }>{ this.props.data.feed.title }</a>
+                <time title={ timeAbs }>{ timeRel }</time>
               </h3>
             </div>
             <div className="mdl-card__supporting-text">
-              <time>{ this.props.data.updated }</time>
             </div>
-            <div className="mdl-card__supporting-text" dangerouslySetInnerHTML={ {__html: this.state.entryContent} }>
+            <div className="mdl-card__supporting-text"
+            dangerouslySetInnerHTML={ {__html: this.state.entryContent} }>
             </div>
             <div className="mdl-card__actions mdl-card--border">
               <button className="mdl-button mdl-js-button mdl-button--raised" onClick={ this.handleExpandEntry }>
